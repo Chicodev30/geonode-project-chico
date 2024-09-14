@@ -54,11 +54,11 @@ WSGI_APPLICATION = "{}.wsgi.application".format(PROJECT_NAME)
 
 # Language code for this installation. All choices can be found here:
 # http://www.i18nguy.com/unicode/language-identifiers.html
-LANGUAGE_CODE = os.getenv("LANGUAGE_CODE", "pt-BR")
+LANGUAGE_CODE = os.getenv("LANGUAGE_CODE", "pt-br")
 
 LANGUAGES = [
+    ('pt-br', 'Português (Brasil)'),
     ('en', 'English'),
-    ('pt-BR', 'Português (Brasil)'),
 ]
 
 if PROJECT_NAME not in INSTALLED_APPS:
