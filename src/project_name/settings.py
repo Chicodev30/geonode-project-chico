@@ -58,7 +58,7 @@ LANGUAGE_CODE = os.getenv("LANGUAGE_CODE", "pt-br")
 
 LANGUAGES = [
     ('pt-br', 'Português (Brasil)'),
-    ('en', 'English'),
+    ('en-US', 'English'),
 ]
 
 if PROJECT_NAME not in INSTALLED_APPS:
