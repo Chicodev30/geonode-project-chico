@@ -1,0 +1,18 @@
+Modificações realizadas:
+
+1) src/requirements.txt para receber os gits onde serão feitos os git clones na construção dos containers:
+
+-e git+https://github.com/Chicodev30/geonode-mapstore-client-chico.git@main#egg=django_geonode_mapstore_client
+-e git+https://github.com/Chicodev30/geonode-importer-chico@main#egg=geonode-importer
+-e git+https://github.com/Chicodev30/geonode-chico.git@main#egg=GeoNode
+
+
+2) src/project_name/settings.py foi altera e adicionado LANGUAGE_CODE e LANGUAGES
+
+LANGUAGE_CODE = os.getenv("LANGUAGE_CODE", "pt-br")
+
+LANGUAGES = [
+    ('pt-br', 'Português (Brasil)'),
+    ('en', 'English'),
+]
+
