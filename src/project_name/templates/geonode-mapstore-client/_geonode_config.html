@@ -2,8 +2,29 @@
 {% block override_local_config %}
 <script>
     window.__GEONODE_CONFIG__.overrideLocalConfig = function(localConfig, _) {
-        // Here the localConfig can be overridden and/or extended
+        localConfig["plugins"]["map_viewer"].forEach((plugin) => {
+            if (plugin["name"] == "Print") {
+                plugin["cfg"]["projectionOptions"] = {
+                    "projections": [
+                        {"name": "EPSG:10665", "value": "EPSG:10665"},
+                        {"name": "EPSG:3857", "value": "EPSG:3857"},
+                        {"name": "EPSG:4326", "value": "EPSG:4326"}
+                    ]
+                }
+            }
+        });
+
+        let crsplugin = {
+            "name": "CRSSelector",
+            "cfg": {
+                "allowedRoles": ["ALL"],
+                "additionalCRS": {"EPSG:10665": {"label": "EPSG:10665"}},
+                "filterAllowedCRS": ["EPSG:10665", "EPSG:4326", "EPSG:3857"]
+            }
+        };
+        localConfig["plugins"]["map_viewer"].push(crsplugin);
         return localConfig;
     };
+
 </script>
 {% endblock %}
